@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Title from './components/Title';
+import Balance from "./components/Balance";
+import IncomeExpense from './components/IncomeExpense';
+import AddTransaction from './components/AddTransaction';
+import TransactionHistory from './components/TransactionHistory';
+import { Provider } from "react-redux";
+import { store } from "./store/Store";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container border  d-flex justify-content-center align-items-center flex-column"> 
+    <Provider store={store}>
+    <Title></Title>
+    <Balance></Balance>
+    <IncomeExpense></IncomeExpense>
+    <TransactionHistory></TransactionHistory>
+    <AddTransaction></AddTransaction>
+    </Provider >
     </div>
   );
 }
