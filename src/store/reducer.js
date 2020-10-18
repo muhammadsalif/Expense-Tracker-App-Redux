@@ -1,17 +1,22 @@
+import { DEL_TRANSACTION } from "./actions";
+import { ADD_TRANSACTION } from "./actions";
+
+
+
 let initialTransaction = [
-  // { id: 1, transDescription: "Salary", transAmount: 100 },
-  // { id: 2, transDescription: "Rent", transAmount: -200 },
-  // { id: 3, transDescription: "Income", transAmount: 500 },
 ];
 
 export const reducer = (state = initialTransaction, action) => {
   switch (action.type) {
-    case "ADD_TRANSACTION": {
-      console.log(action.payload)
+    case ADD_TRANSACTION: {
+      // console.log("reducer called")
+      // console.log(action.type)
+      // console.log(action.payload)
+      
       return [...state, action.payload];
     }
-    case "DEL_TRANSACTION":{
-      return state.filter((obj)=>obj.id!=action.payload.id)
+    case DEL_TRANSACTION:{
+      return state.filter((obj)=>obj.id!==action.payload.id)
     }
     default: {
       return state;

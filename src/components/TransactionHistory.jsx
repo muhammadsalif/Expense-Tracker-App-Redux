@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { deleteTransaction } from "../store/actions";
+
 const TransactionHistory = () => {
   let history = useSelector((state) => state);
+
   let dispatch = useDispatch();
   return (
     <div className="row">
@@ -32,12 +35,13 @@ const TransactionHistory = () => {
               <span>
                 <button
                   onClick={() => {
-                    dispatch({
-                      type: "DEL_TRANSACTION",
-                      payload: {
-                        id: obj.id,
-                      },
-                    });
+                    // dispatch({
+                    //   type: "DEL_TRANSACTION",
+                    //   payload: {
+                    //     id: obj.id,
+                    //   },
+                    // });
+                    dispatch(deleteTransaction(obj.id));
                   }}
                   className="btn btn-danger"
                 >

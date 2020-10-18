@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTransaction } from "../store/actions";
 
 const AddTransaction = () => {
   let [id, setId] = useState(0);
@@ -14,14 +15,17 @@ const AddTransaction = () => {
   const handleSubmit = (e) => {
     setId((id += 1));
     e.preventDefault();
-    dispatch({
-      type: "ADD_TRANSACTION",
-      payload: {
-        id: id,
-        transDescription: description,
-        transAmount: amount,
-      },
-    });
+
+    dispatch(addTransaction(id, description, amount));
+
+    // dispatch({
+    //   type: "ADD_TRANSACTION",
+    //   payload: {
+    //     id: id,
+    //     transDescription: description,
+    //     transAmount: amount,
+    //   },
+    // });
   };
 
   return (
